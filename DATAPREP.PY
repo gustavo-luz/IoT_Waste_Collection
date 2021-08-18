@@ -1,11 +1,16 @@
 
 import pandas as pd
+import googlemaps
+from itertools import tee
+import config
 
-df = pd.read_excel("Coordinates.xlsx")
+df = pd.read_excel('IoT_Waste_Collection/IOTSCv2.xlsx')
 print(df)
 
-API_key = '' #enter your google maps api key here
+API_key = config.api_key #enter your google maps api key here
 gmaps = googlemaps.Client(key=API_key)
+
+
 
 #empty list - will be used to store calculated distances
 time_list = []
@@ -16,15 +21,15 @@ destination_id_list = []
 for (i1, row1) in df.iterrows():
   print("origin")
   print(row1['ID'])
-  LatOrigin = row1['latitude']
-  LongOrigin = row1['longitude']
+  LatOrigin = row1['Location (Latitude)']
+  LongOrigin = row1['Location (Longitude)']
   origin = (LatOrigin, LongOrigin)
   origin_id = row1['ID']
   for (i2, row2) in  df.iterrows():
     print("destination id")
     print(row2['ID'])
-    LatDestination = row2['latitude']
-    LongDestination = row2['longitude']
+    LatDestination = row2['Location (Latitude)']
+    LongDestination = row2['Location (Longitude)']
     destination_id = row2['ID']
     destination = (LatDestination, LongDestination)
     result = gmaps.distance_matrix(origin, destination, mode='driving')
@@ -40,8 +45,9 @@ output = pd.DataFrame(distance_list, columns = ['Distance in meter'])
 output['duration in seconds'] = time_list
 output['origin_id'] = origin_id_list
 output['destination_id'] = destination_id_list
-
+"""
 output_v1 = pd.merge(output, df, how = "left", left_on = "origin_id", right_on = "ID")
 output_v2 = pd.merge(output_v1, df, how = "left", left_on = "destination_id", right_on = "ID"
 output_v2[['city_x', 'city_y', 'Distance in meter', 'duration in seconds']]
 output_v2.to_excel('Coordinates_distancematrix.xlsx')
+"""
