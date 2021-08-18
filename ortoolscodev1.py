@@ -7,6 +7,7 @@ from ortools.constraint_solver import pywrapcp
 def create_data_model():
     """Stores the data for the problem."""
     data = {}
+    #TODO get this distance matrix from google maps
     data['distance_matrix'] = [
         [
             0, 548, 776, 696, 582, 274, 502, 194, 308, 194, 536, 502, 388, 354,
@@ -77,7 +78,10 @@ def create_data_model():
             536, 194, 798, 0
         ],
     ]
+    # TODO make demands be like the distributtion roberto tells me
     data['demands'] = [0, 1, 1, 2, 4, 2, 4, 8, 8, 1, 2, 1, 2, 4, 4, 8, 8]
+
+    # TODO discover num of vehicles and capacities
     # 4 vehicles
     """
     data['vehicle_capacities'] = [15, 15, 15, 15]
@@ -116,6 +120,7 @@ def print_solution(data, manager, routing, solution):
         print(plan_output)
         total_distance += route_distance
         total_load += route_load
+        # TODO print total cost
     print('Total distance of all routes: {}m'.format(total_distance))
     print('Total load of all routes: {}'.format(total_load))
 
@@ -164,6 +169,7 @@ def main():
         'Capacity')
 
     # Setting first solution heuristic.
+    #TODO select different heuristics
     search_parameters = pywrapcp.DefaultRoutingSearchParameters()
     search_parameters.first_solution_strategy = (
         routing_enums_pb2.FirstSolutionStrategy.PATH_CHEAPEST_ARC)
