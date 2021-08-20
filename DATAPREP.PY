@@ -91,7 +91,13 @@ for (i1, row1), (i2, row2) in pairwise(df.iterrows()):
       #df['Distance'] = list
       #df.to_csv('calculated_distances.csv', sep=';', index=None)
 """
-origin = (-15.760026,-47.882887 ) 
+
+#origin = (-15.760026,-47.882887 ) 
+
+
+print(len(df.coordinates))  
+
+origin = df.coordinates[0]
 destinations = df.coordinates
 
 
@@ -102,9 +108,7 @@ for destination in destinations:
     result = gmaps.distance_matrix(origin, destination, mode='driving')["rows"][0]["elements"][0]["distance"]["value"]  
     result = result/1000
     actual_distance.append(result)
-    
-
-
+  
 #Add the list of coordinates to the main data set
 
 df["distance (Km)"] = actual_distance
@@ -112,4 +116,32 @@ df["distance (Km)"] = actual_distance
 #print(df.head(15))
 print(df)
 
+
+
 #TODO make a for using each row (id 2,3,4...) as origin and transform distance collumn into a list that goes as input to next routing program
+
+for i in range(0,len(df.coordinates)):
+  
+
+  origin = df.coordinates[i]
+  destinations = df.coordinates
+
+
+  actual_distance = []
+
+
+  for destination in destinations:
+      result = gmaps.distance_matrix(origin, destination, mode='driving')["rows"][0]["elements"][0]["distance"]["value"]  
+      result = result/1000
+      actual_distance.append(result)
+    
+print(actual_distance)
+"""
+#Add the list of coordinates to the main data set
+
+  df["distance (Km)"] = actual_distance
+
+#print(df.head(15))
+print(df)
+
+"""
