@@ -8,7 +8,7 @@ import config
 # desired output: list with matrix distance for each point
 
 df = pd.read_excel('IoT_Waste_Collection/IOTSCv2.xlsx')
-print(df)
+#print(df)
 
 API_key = config.api_key #enter your google maps api key here
 gmaps = googlemaps.Client(key=API_key)
@@ -57,6 +57,8 @@ output_v2[['city_x', 'city_y', 'Distance in meter', 'duration in seconds']]
 output_v2.to_excel('Coordinates_distancematrix.xlsx')
 """
 
+
+"""
 #pairwise function implemented to iterate through two consecutive rows (pairs) in a data frame
 def pairwise(iterable):
     a, b = tee(iterable)
@@ -88,3 +90,26 @@ for (i1, row1), (i2, row2) in pairwise(df.iterrows()):
 
       #df['Distance'] = list
       #df.to_csv('calculated_distances.csv', sep=';', index=None)
+"""
+origin = (-15.760026,-47.882887 ) 
+destinations = df.coordinates
+
+
+actual_distance = []
+
+
+for destination in destinations:
+    result = gmaps.distance_matrix(origin, destination, mode='driving')["rows"][0]["elements"][0]["distance"]["value"]  
+    result = result/1000
+    actual_distance.append(result)
+    
+
+
+#Add the list of coordinates to the main data set
+
+df["distance (Km)"] = actual_distance
+
+#print(df.head(15))
+print(df)
+
+#TODO make a for using each row (id 2,3,4...) as origin and transform distance collumn into a list that goes as input to next routing program
