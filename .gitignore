@@ -139,3 +139,5 @@ cython_debug/
 
 #Credentials
 config.py
+
+.~lock.IOTSCv2.xlsx#

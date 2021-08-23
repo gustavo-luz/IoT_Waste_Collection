@@ -14,7 +14,7 @@ API_key = config.api_key #enter your google maps api key here
 gmaps = googlemaps.Client(key=API_key)
 
 
-
+# https://medium.com/how-to-use-google-distance-matrix-api-in-python/how-to-use-google-distance-matrix-api-in-python-ef9cd895303c
 #only from origin to dest, output: [0, 19171, 14662, 4135]
 
 #pairwise function implemented to iterate through two consecutive rows (pairs) in a data frame
