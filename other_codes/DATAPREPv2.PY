@@ -38,6 +38,7 @@ for (i1, row1), (i2, row2) in pairwise(df.iterrows()):
       LatDest = row2['latitude']   # Save value as lat
       LongDest = row2['longitude'] # Save value as lat
       destination = (LatDest,LongDest)
+      print(destination)
 
       #pass origin and destination variables to distance_matrix function# output in meters
       result = gmaps.distance_matrix(origins, destination, mode='driving')["rows"][0]["elements"][0]["distance"]["value"]
