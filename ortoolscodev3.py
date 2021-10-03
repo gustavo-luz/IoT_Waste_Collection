@@ -43,6 +43,8 @@ for (i1, row1) in df.iterrows():
     destination_id = row2['ID']
     destination = (LatDestination, LongDestination)
     result = gmaps.distance_matrix(origin, destination, mode='driving')
+    #uncomment for cool api logs
+    print(result)
     result_distance = result["rows"][0]["elements"][0]["distance"]["value"]
     result_time = result["rows"][0]["elements"][0]["duration"]["value"]
     time_list.append(result_time)
@@ -60,7 +62,7 @@ from itertools import islice
 Input = distance_list
   
 # list of length in which we have to split
-length_to_split = [4,4,4,4]
+length_to_split = [16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16]
   
 # Using islice
 Inputt = iter(Input)
@@ -85,7 +87,7 @@ def create_data_model():
     # normal: a cada 10, 3 cheios, outros 7 de 50% pra cima
     # 30% cheios, outros 70% de 50% pra cima
 
-    data['demands'] = [350, 700, 400, 300, 470]
+    data['demands'] = [800,800,800,500,450,400,350,550,420,390,350,700,400,300,470,500]
 
     # 1 vehicle
     # capacity: 9000 to 12000 kg

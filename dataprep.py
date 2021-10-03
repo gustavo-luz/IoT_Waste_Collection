@@ -59,7 +59,7 @@ from itertools import islice
 Input = distance_list
   
 # list of length in which we have to split
-length_to_split = [4,4,4,4]
+length_to_split = [16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16]
   
 # Using islice
 Inputt = iter(Input)
