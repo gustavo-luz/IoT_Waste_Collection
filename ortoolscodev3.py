@@ -44,7 +44,7 @@ for (i1, row1) in df.iterrows():
     destination = (LatDestination, LongDestination)
     result = gmaps.distance_matrix(origin, destination, mode='driving')
     #uncomment for cool api logs
-    print(result)
+    #print(result)
     result_distance = result["rows"][0]["elements"][0]["distance"]["value"]
     result_time = result["rows"][0]["elements"][0]["duration"]["value"]
     time_list.append(result_time)
