@@ -11,7 +11,7 @@ from itertools import tee
 import config
 
 #input: CSV file with id,latitude, longitude and capacities
-# desired output: list with matrix distance for each point
+# desired output: list with matrix distance for each point consumed by or tools
 
 df = pd.read_excel('IoT_Waste_Collection/rota_antiga.xlsx')
 #print(df)
@@ -19,8 +19,7 @@ df = pd.read_excel('IoT_Waste_Collection/rota_antiga.xlsx')
 API_key = config.api_key #enter your google maps api key here
 gmaps = googlemaps.Client(key=API_key)
 
-# works but creates a df , no meters found
-# https://strategyanalytics.medium.com/create-a-distance-matrix-in-python-with-the-google-maps-api-737dd0fc8081
+
 
 #empty list - will be used to store calculated distances
 time_list = []
@@ -85,7 +84,7 @@ def create_data_model():
 
     #always 1 number bigger, because it has to return to base
     data['distance_matrix'] = Output
-    # TODO make demands be like the distributtion roberto tells me
+    
     # full container: 600 to 800kg
     # normal: a cada 10, 3 cheios, outros 7 de 50% pra cima
     # 30% cheios, outros 70% de 50% pra cima
@@ -94,8 +93,7 @@ def create_data_model():
 
     data['demands'] = df['PESAGENS'].values.tolist()
     print(data['demands'])
-    #data['demands'] = [0,800,800,800,500,450,400,350,550,420,390,350,700,400,300]
-    #rint(data['demands'])
+
 
     # 1 vehicle
     # capacity: 9000 to 12000 kg
@@ -131,7 +129,7 @@ def print_solution(data, manager, routing, solution):
         print(plan_output)
         total_distance += route_distance
         total_load += route_load
-        # TODO print total cost
+        
     print('Total distance of all routes: {}m'.format(total_distance))
     print('Total load of all routes: {}'.format(total_load))
 
@@ -180,7 +178,7 @@ def main():
         'Capacity')
 
     # Setting first solution heuristic.
-    #TODO select different heuristics
+    
     search_parameters = pywrapcp.DefaultRoutingSearchParameters()
     search_parameters.first_solution_strategy = (
         routing_enums_pb2.FirstSolutionStrategy.AUTOMATIC)
