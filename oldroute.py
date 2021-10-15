@@ -1,6 +1,6 @@
 """Capacited Vehicles Routing Problem (CVRP)."""
 
-# small version, for 1 truck visiting 4 places
+# version for 1 truck visiting 10+ places
 #code to validate with a small sample: trying to validate this sample! input from other code
 
 from ortools.constraint_solver import routing_enums_pb2

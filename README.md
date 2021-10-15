@@ -1,21 +1,17 @@
 # IoT_Waste_Collection
 
+
+Codes to optimize the route of a truck that collects weight. Input is .xlsx file with locations and weights of gargabe bins and output is route of the trucks.
+
+Requires api access to google matrix distance api and google maps, free trial is available
+
+
 relevant links: 
 
 matrix distance: 
 https://strategyanalytics.medium.com/create-a-distance-matrix-in-python-with-the-google-maps-api-737dd0fc8081
 https://medium.com/how-to-use-google-distance-matrix-api-in-python/how-to-use-google-distance-matrix-api-in-python-ef9cd895303c
 
-
-TODO recente
-prints bonitos, separar
-colocar matriz maior
-calcular custo
-exibir rota com grafo
-exibir rota com google maps (html)
-
-TODO longo
-colocar tempo de input 
 
 
 rota nova:
