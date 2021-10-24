@@ -141,3 +141,6 @@ cython_debug/
 config.py
 
 .~lock.IOTSCv2.xlsx#
+
+rota_antiga.xlsx
+rota_nova.xlsx
