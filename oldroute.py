@@ -51,10 +51,14 @@ for (i1, row1) in df.iterrows():
     distance_list.append(result_distance)
     origin_id_list.append(origin_id)
     destination_id_list.append(destination_id)
+    #print(df)
 
 size=(len(df.coordinates))
-print(distance_list)
-
+#print(distance_list)
+#print(result_time)
+#print(result_distance)
+#print(origin_id)
+#print(destination_id)
 
 from itertools import islice
   
@@ -63,9 +67,10 @@ Input = distance_list
   
 # list of length in which we have to split
 number_containers = len(df['ID'])
+print("Number of Containers: ",number_containers)
 
 length_to_split = number_containers*[number_containers]
-print(length_to_split)
+#print(length_to_split)
   
 # Using islice
 Inputt = iter(Input)
@@ -75,9 +80,9 @@ Output = [list(islice(Inputt, elem))
 
 
 # Printing Output
-print("Initial list is:", Input)
-print("Split length list: ", length_to_split)
-print("List after splitting", Output)
+print("API list", Input)
+#print("Split length list: ", length_to_split)
+print("List of Lists", Output)
 def create_data_model():
     """Stores the data for the problem."""
     data = {}
@@ -103,6 +108,7 @@ def create_data_model():
     data['num_vehicles'] = 1
 
     data['depot'] = 0
+    print("Entrada OR-Tools: ",data," ",type(data))
     return data
 
 
