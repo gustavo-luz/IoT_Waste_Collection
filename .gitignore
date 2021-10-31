@@ -144,3 +144,5 @@ config.py
 
 rota_antiga.xlsx
 rota_nova.xlsx
+
+*.xlsx
