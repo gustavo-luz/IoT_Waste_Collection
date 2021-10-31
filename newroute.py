@@ -13,7 +13,7 @@ import config
 #input: CSV file with id,latitude, longitude and capacities
 # desired output: list with matrix distance for each point consumed by or tools
 
-df = pd.read_excel('IoT_Waste_Collection/rota_nova.xlsx')
+df = pd.read_excel('/home/gustavo/python/pg/rota_nova.xlsx')
 #print(df)
 
 API_key = config.api_key #enter your google maps api key here
@@ -181,9 +181,9 @@ def main():
     
     search_parameters = pywrapcp.DefaultRoutingSearchParameters()
     search_parameters.first_solution_strategy = (
-        routing_enums_pb2.FirstSolutionStrategy.FIRST_UNBOUND_MIN_VALUE)
+        routing_enums_pb2.FirstSolutionStrategy.AUTOMATIC)
     search_parameters.local_search_metaheuristic = (
-        routing_enums_pb2.LocalSearchMetaheuristic.AUTOMATIC)
+        routing_enums_pb2.LocalSearchMetaheuristic.GUIDED_LOCAL_SEARCH)
     search_parameters.time_limit.FromSeconds(1)
 
     # Solve the problem.

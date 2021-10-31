@@ -13,7 +13,7 @@ import config
 #input: CSV file with id,latitude, longitude and capacities
 # desired output: list with matrix distance for each point consumed by or tools
 
-df = pd.read_excel('IoT_Waste_Collection/rota_antiga.xlsx')
+df = pd.read_excel('/home/gustavo/python/pg/rota_antiga.xlsx')
 #print(df)
 
 API_key = config.api_key #enter your google maps api key here
