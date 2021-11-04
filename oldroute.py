@@ -9,9 +9,10 @@ import pandas as pd
 import googlemaps
 from itertools import tee
 import config
-
+import time
 #input: CSV file with id,latitude, longitude and capacities
 # desired output: list with matrix distance for each point consumed by or tools
+start1 = time.time()
 
 df = pd.read_excel('/home/gustavo/python/pg/rota_antiga.xlsx')
 #print(df)
@@ -77,7 +78,8 @@ Output = [list(islice(Inputt, elem))
           for elem in length_to_split]
   
 
-
+stop1 = time.time()
+start2 = time.time()
 # Printing Output
 print("API list", Input)
 #print("Split length list: ", length_to_split)
@@ -204,3 +206,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+    stop2 = time.time()
+    print("Tempo para rodar API:", stop1-start1)
+    print("Tempo para rodar OR-Tools:", stop2-start2)

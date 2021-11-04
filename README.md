@@ -46,3 +46,16 @@ OUTROS: MESMA COISA
 
 METAheuristica
 OBJECTIVE TABU N FUNCIONOU
+
+ver como escrever as unidades e siglas, se usar adicionar na lista
+O programa rodou em um computador com processador Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz com 8gb de memória RAM.
+
+rota atual:
+Tempo para rodar API: 29.227086067199707
+Tempo para rodar OR-Tools: 1.006389856338501
+
+rota nova: 
+Tempo para rodar API: 13.201993942260742
+Tempo para rodar OR-Tools: 1.0198352336883545
+
+
