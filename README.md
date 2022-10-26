@@ -33,21 +33,10 @@ https://www.google.com/maps/dir/'-15.7954282,-47.9870223'/'-15.738114,-47.771279
 rota antiga
 https://www.google.com/maps/dir/'-15.7954282,-47.9870223'/'-15.738114,-47.7712792'/'-15.6892512,-47.8219172'/'-15.7188221,-47.8874016'/'-15.7416731,-47.893982'/'-15.7383457,-47.8949742'/'-15.7580608,-47.8917449'/'-15.7593062,-47.8893499'/'-15.7600264,-47.8828874'/'-15.7559142,-47.8848515'/'-15.7616948,-47.8845576'/'-15.7683904,-47.8812069'/'-15.7775305,-47.8835358'/'-15.7744312,-47.9002624'/'-15.788844,-47.8938437'/'-15.7954282,-47.9870223'/
 
-###Trying other heuristics
+testes de métodos:
+não funcionou: EVALUATOR STRATEGY, SWEEP, ALL UNPERFORMED, BEST INSERTION, Metaheuristicas: OBJECTIVE TABU
+maior distância: SAVINGS 
 
-86562
-5240
-0-2-1-3-6-7-8-9-5-4-0
-
-N ACHOU: EVALUATOR STRATEGY, SWEEP, ALL UNPERFORMED, BEST INSERTION, 
-MAIOR DISTANCIA: SAVINGS 
-
-OUTROS: MESMA COISA
-
-METAheuristica
-OBJECTIVE TABU N FUNCIONOU
-
-ver como escrever as unidades e siglas, se usar adicionar na lista
 O programa rodou em um computador com processador Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz com 8gb de memória RAM.
 
 rota atual:
